@@ -485,57 +485,6 @@ dialog#labDlg::backdrop{background:rgba(3,5,10,.82);backdrop-filter:blur(8px);-w
 .sc-head{flex-wrap:wrap}
 .sc .stamp{white-space:normal;max-width:100%}
 @media (max-width:760px){#heroReel{opacity:.28}.sc .pj-n{font-size:84px}}
-
-.chapter{height:100svh;display:grid;place-content:center;justify-items:center;gap:22px;overflow:hidden;position:relative;z-index:2;background-color:#060A13}
-.chapter h2{font-size:clamp(80px,17vw,300px);text-align:center;color:var(--brand);line-height:.82;will-change:transform}
-.chapter p{font-family:var(--f-m);font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink3)}
-#cur{position:fixed;left:0;top:0;z-index:90;pointer-events:none;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:999px;background:var(--brand);display:grid;place-items:center;font-family:var(--f-m);font-size:0;font-weight:600;color:var(--brand-ink);white-space:nowrap;transition:width .3s cubic-bezier(.2,.9,.2,1.2),height .3s cubic-bezier(.2,.9,.2,1.2),margin .3s,font-size .2s,opacity .2s;opacity:.0;mix-blend-mode:normal}
-#cur.on{width:104px;height:104px;margin:-52px 0 0 -52px;font-size:12.5px;opacity:1}
-.sc-vis.big{aspect-ratio:1.12/1}
-.sc-vis .sc-tag{z-index:1}
-html.mo .sc-vis{cursor:none}
-@media (max-width:1100px){.chapter{height:70svh}.sc-vis.big{aspect-ratio:1/1.02}}
-.sc-play{bottom:auto;top:12px;right:12px;padding:9px 15px;font-size:13px}
-
-/* ================= v25: stacked screens ================= */
-/* headline: plain gold. The moving-gradient text painted a ghost letter once the line was split into characters. */
-h1 .l2,h1 .l2 div{background:none;-webkit-text-fill-color:currentColor;animation:none;filter:none;color:var(--brand)}
-/* the stamp sits beside the project number instead of floating across the column */
-.sc-head{justify-content:flex-start;align-items:center;gap:clamp(16px,2vw,30px)}
-.sc .stamp{margin-top:0;grid-column:auto}
-
-/* chapter: title you pull back from, then an index of all fifteen */
-.chapter{height:auto;min-height:0;display:grid;grid-template-columns:minmax(0,1fr);place-content:center;justify-items:center;gap:20px;overflow:hidden;position:relative;z-index:2;background:#060A13;padding:72px max(20px,env(safe-area-inset-right,0px)) 72px max(20px,env(safe-area-inset-left,0px))}
-.chapter h2{font-size:clamp(64px,11vw,190px);text-align:center;color:var(--brand);line-height:.82;will-change:auto;transform-origin:50% 55%}
-.chapter .ch-k{font-family:var(--f-m);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);text-align:center}
-.ch-idx{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;width:min(1320px,100%);margin-top:10px}
-.ch-idx a{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 12px;align-items:center;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:#0D1524;color:var(--ink);text-decoration:none;min-width:0;transition:border-color .2s,background .2s}
-.ch-idx a:hover,.ch-idx a:focus-visible{border-color:var(--brand);background:#142038}
-.ch-idx b{grid-row:1/3;font-family:var(--f-d);font-weight:900;font-size:34px;line-height:1;color:var(--brand)}
-.ch-idx i{font-family:var(--f-m);font-style:normal;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.ch-idx span{font-size:14.5px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-html.stack .chapter{height:100svh}
-@media (max-width:1100px){.chapter{height:auto}.ch-idx{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width:760px){.ch-idx{grid-template-columns:repeat(2,minmax(0,1fr))}.ch-idx a{padding:10px}.ch-idx b{font-size:26px}}
-
-/* stacked screens: each project sticks to the top and the next one slides over it */
-html.stack .pj.sc{position:sticky;top:var(--stick,0px);min-height:100svh;padding-block:84px 104px;isolation:isolate}
-html.stack.nostick .pj.sc{position:relative;top:0}
-html.stack .pj.sc + .pj.sc::before{display:none}
-html.stack .pj.sc::after{content:"";position:absolute;z-index:-2;top:0;bottom:0;left:calc(-1*var(--bleed,0px));right:calc(-1*var(--bleed,0px));background:#070C17;border-top:1px solid rgba(242,193,78,.4);border-radius:36px 36px 0 0;box-shadow:0 -40px 90px -10px rgba(0,0,0,.85)}
-html.stack .pj.sc:nth-child(even)::after{background:#0A1222}
-html.stack .pj.sc:first-child::after{border-radius:0;box-shadow:none}
-html.stack .sc-vis,html.stack .sc-txt,html.stack .sc-txt>*{will-change:transform}
-html.stack .sc-reel{transform-origin:50% 50%}
-html.stack .sc-vis.big{max-height:76svh}
-html.stack #pjList{padding-bottom:0}
-html.stack #projects{padding-top:0}
-html.stack #projects>.wrap:first-child{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
-/* the story screen fills its pinned height */
-@media (min-width:1101px){html.mo #story{min-height:calc(100svh - 57px);display:grid;align-content:center}}
-/* the drifting tape stays out from behind project text */
-#projects{background:#060A13;position:relative;z-index:1}
-@media (max-height:800px){html.stack .pj.sc{padding-block:70px 86px}html.stack .sc .pj-n{font-size:clamp(72px,8.5vw,120px)}html.stack .sc .pj-t{font-size:clamp(28px,3.1vw,44px)}html.stack .sc-txt{gap:10px}}
 </style>
 
 <a class="skip" href="#projects">Skip to the projects</a>
@@ -605,7 +554,6 @@ html.stack #projects>.wrap:first-child{position:absolute;width:1px;height:1px;ov
   </div>
 </section>
 
-<nav class="chapter" id="chapter" aria-label="Project index"><h2 aria-hidden="true">Fifteen<br>projects</h2><p class="ch-k">One screen each: the question, the answer key, what it found and where it falls short. Pick one, or keep scrolling.</p><div class="ch-idx" id="chIdx"></div></nav>
 <!-- PROJECTS -->
 <section class="sec" id="projects" aria-labelledby="pH">
   <div class="wrap">
@@ -2741,109 +2689,21 @@ P.p11 = svg => {
 
   /* run only the canvases on screen */
   const live = new Map(); let rafOn = false;
-  function reelLoop(now) { live.forEach((f, cv) => { if (cv._on && !cv._hold) f(now / 1000); }); if (live.size) requestAnimationFrame(reelLoop); else rafOn = false; }
+  function reelLoop(now) { live.forEach((f, cv) => { if (cv._on) f(now / 1000); }); if (live.size) requestAnimationFrame(reelLoop); else rafOn = false; }
   function reel(cv, kind, o) { const f = REELS[kind](cv, o); f(still ? 5.6 : 0); if (reduce || still) return; live.set(cv, f);
     if ('IntersectionObserver' in window) new IntersectionObserver(es => es.forEach(e => { cv._on = e.isIntersecting; })).observe(cv); else cv._on = true;
     if (!rafOn) { rafOn = true; requestAnimationFrame(reelLoop); } }
 
-  /* ================= eleven more reels, each drawn from the project's own numbers ================= */
-  const cG = a => `rgba(242,193,78,${a})`, cR = a => `rgba(240,101,91,${a})`, cI = a => `rgba(241,234,218,${a})`;
-  const tx = (c, s, x, y, o = {}) => { c.font = `${o.w || 500} ${o.size || 12}px ${o.d ? '"Big Shoulders Display", sans-serif' : '"IBM Plex Mono", monospace'}`; c.textAlign = o.al || 'left'; c.fillStyle = o.col || cI(.7); c.fillText(s, x, y); c.textAlign = 'left'; };
-  const eo = p => 1 - Math.pow(1 - Math.max(0, Math.min(1, p)), 3);
-  const head = (c, w, title, big, sub, col) => { tx(c, title.toUpperCase(), 22, 58, { size: 11.5, col: cI(.5) }); if (big) tx(c, big, 22, 58 + Math.min(64, w * .11), { size: Math.min(64, w * .11), d: 1, w: 900, col: col || cG(1) }); if (sub) tx(c, sub, 22, 58 + Math.min(64, w * .11) + 20, { size: 11.5, col: cI(.6) }); return 58 + Math.min(64, w * .11) + 40; };
-
-  REELS.grid = (cv, o) => t => { const [c, w, h] = fit(cv), T = 8, ph = (t % T) / T, k = Math.min(o.n, Math.floor(eo(ph * 1.5) * o.n)), top = head(c, w, o.title, `${k} / ${o.n}`, o.sub);
-    c.clearRect(0, 0, w, h); head(c, w, o.title, `${k} / ${o.n}`, o.sub); const cols = 10, gw = (w - 44) / cols, gh = Math.min(gw * .62, (h - top - 30) / Math.ceil(o.n / cols));
-    for (let i = 0; i < o.n; i++) { const x = 22 + (i % cols) * gw, y = top + Math.floor(i / cols) * gh, on = i < k, fresh = i === k - 1; c.fillStyle = fresh ? '#FFF3C4' : on ? cG(.85) : cI(.07); c.fillRect(x + 2, y + 2, gw - 4, gh - 4); if (on) { c.strokeStyle = '#0A0F1A'; c.lineWidth = 2; c.beginPath(); c.moveTo(x + gw * .3, y + gh * .52); c.lineTo(x + gw * .45, y + gh * .7); c.lineTo(x + gw * .72, y + gh * .3); c.stroke(); } } };
-
-  REELS.line = (cv, o) => { const P = o.pts.map(p => +p[1]), lo = Math.min(...P, ...(o.marks || []).map(m => m.v)), hi = Math.max(...P, ...(o.marks || []).map(m => m.v));
-    return t => { const [c, w, h] = fit(cv), T = 9, ph = (t % T) / T, n = Math.max(2, Math.floor(eo(ph * 1.6) * P.length)); c.clearRect(0, 0, w, h); const top = head(c, w, o.title, o.fmt(P[n - 1]), o.sub(o.pts[n - 1][0]));
-      const x = i => 22 + (w - 110) * i / (P.length - 1), y = v => h - 34 - (v - lo) / (hi - lo) * (h - top - 50);
-      (o.marks || []).forEach(m => { c.setLineDash([5, 6]); c.strokeStyle = m.col; c.lineWidth = 1.2; c.beginPath(); c.moveTo(22, y(m.v)); c.lineTo(w - 86, y(m.v)); c.stroke(); c.setLineDash([]); tx(c, m.label, w - 80, y(m.v) + 4, { size: 11, col: m.col }); });
-      const g = c.createLinearGradient(0, top, 0, h); g.addColorStop(0, cG(.28)); g.addColorStop(1, cG(0)); c.beginPath(); c.moveTo(x(0), h - 34); for (let i = 0; i < n; i++) c.lineTo(x(i), y(P[i])); c.lineTo(x(n - 1), h - 34); c.fillStyle = g; c.fill();
-      c.beginPath(); for (let i = 0; i < n; i++) i ? c.lineTo(x(i), y(P[i])) : c.moveTo(x(i), y(P[i])); c.strokeStyle = cG(1); c.lineWidth = 2.2; c.shadowColor = cG(1); c.shadowBlur = 12; c.stroke(); c.shadowBlur = 0;
-      c.beginPath(); c.arc(x(n - 1), y(P[n - 1]), 5 + Math.sin(t * 6) * 1.5, 0, 6.3); c.fillStyle = '#FFF3C4'; c.fill(); }; };
-
-  REELS.ladder = (cv, o) => t => { const [c, w, h] = fit(cv), T = 9, ph = (t % T) / T; c.clearRect(0, 0, w, h); const top = head(c, w, o.title, o.big, o.sub, cR(1)), x = v => 40 + (v - o.lo) / (o.hi - o.lo) * (w - 80), y0 = top + (h - top) * .5;
-    c.strokeStyle = cI(.25); c.lineWidth = 1; c.beginPath(); c.moveTo(30, y0); c.lineTo(w - 30, y0); c.stroke(); for (let v = Math.ceil(o.lo); v <= o.hi; v++) { c.beginPath(); c.moveTo(x(v), y0 - 5); c.lineTo(x(v), y0 + 5); c.stroke(); tx(c, '$' + v, x(v), y0 + 22, { size: 10.5, al: 'center', col: cI(.45) }); }
-    o.items.forEach((it, i) => { const p = eo((ph * 1.7 - i / (o.items.length + 1)) * 3); if (p <= 0) return; const up = i % 2 ? 1 : -1, yy = y0 + up * (34 + (i % 3) * 22) * p; c.strokeStyle = it.col; c.globalAlpha = p; c.beginPath(); c.moveTo(x(it.v), y0); c.lineTo(x(it.v), yy); c.stroke(); c.beginPath(); c.arc(x(it.v), y0, it.big ? 8 + Math.sin(t * 5) * 2 : 5, 0, 6.3); c.fillStyle = it.col; c.fill(); tx(c, `${it.label} $${it.v.toFixed(2)}`, x(it.v), yy + (up > 0 ? 14 : -6), { size: 11, al: x(it.v) > w * .7 ? 'right' : x(it.v) < w * .3 ? 'left' : 'center', col: it.col }); c.globalAlpha = 1; }); };
-
-  REELS.hbars = (cv, o) => { const mx = Math.max(...o.rows.map(r => Math.abs(r[1]))), neg = o.rows.some(r => r[1] < 0);
-    return t => { const [c, w, h] = fit(cv), T = 8, ph = (t % T) / T; c.clearRect(0, 0, w, h); const top = head(c, w, o.title, o.big, o.sub, o.bigCol), rh = Math.min(44, (h - top - 16) / o.rows.length), lx = Math.min(210, w * .4), z = neg ? lx + (w - lx - 80) * .5 : lx, span = neg ? (w - lx - 80) * .5 : w - lx - 80;
-      o.rows.forEach((r, i) => { const p = eo((ph * 1.8 - i * .09) * 2.2), y = top + i * rh, bw = r[1] / mx * span * p; tx(c, r[0], lx - 12, y + rh * .6, { size: 11.5, al: 'right', col: i === o.hot ? cI(1) : cI(.62) }); c.fillStyle = r[1] < 0 ? cR(.9) : i === o.hot ? '#FFF3C4' : cG(.85); c.fillRect(Math.min(z, z + bw), y + rh * .22, Math.abs(bw), rh * .56); tx(c, o.fmt(r[1] * p), (r[1] < 0 ? z + bw - 8 : z + bw + 8), y + rh * .6, { size: 12, al: r[1] < 0 ? 'right' : 'left', col: cI(.9) }); });
-      if (neg) { c.strokeStyle = cI(.3); c.beginPath(); c.moveTo(z, top); c.lineTo(z, top + o.rows.length * rh); c.stroke(); } }; };
-
-  REELS.gap = (cv, o) => t => { const [c, w, h] = fit(cv), T = 8, ph = (t % T) / T, p = eo(ph * 2), q = eo(ph * 2 - .7); c.clearRect(0, 0, w, h); const top = head(c, w, o.title, '$' + Math.round(o.gap * q).toLocaleString('en-US'), o.sub, cR(1)), base = h - 46, sc = (base - top - 10) / o.a, bw = Math.min(150, w * .26), x1 = w * .26, x2 = w * .62;
-    c.fillStyle = cI(.85); c.fillRect(x1 - bw / 2, base - o.a * sc * p, bw, o.a * sc * p); c.fillStyle = cG(.9); c.fillRect(x2 - bw / 2, base - o.b * sc * p, bw, o.b * sc * p); tx(c, o.la, x1, base + 20, { size: 11, al: 'center' }); tx(c, o.lb, x2, base + 20, { size: 11, al: 'center' });
-    tx(c, '$' + Math.round(o.a * p).toLocaleString('en-US'), x1, base - o.a * sc * p - 8, { size: 13, al: 'center', col: cI(1) }); tx(c, '$' + Math.round(o.b * p).toLocaleString('en-US'), x2, base - o.b * sc * p - 8, { size: 13, al: 'center', col: cG(1) });
-    if (q > 0) { c.fillStyle = cR(.25 + .15 * Math.sin(t * 5)); c.fillRect(x2 - bw / 2, base - o.a * sc, bw, (o.a - o.b) * sc * q); c.strokeStyle = cR(1); c.setLineDash([4, 5]); c.strokeRect(x2 - bw / 2, base - o.a * sc, bw, (o.a - o.b) * sc * q); c.setLineDash([]); tx(c, 'the gap', x2, base - o.b * sc - (o.a - o.b) * sc * .45, { size: 12, al: 'center', col: cR(1) }); } };
-
-  REELS.swarm = (cv, o) => { const r = rnd(5), J = o.pts.map(() => r()), lo = Math.min(...o.pts) - .1, hi = Math.max(...o.pts, o.line) + .1;
-    return t => { const [c, w, h] = fit(cv), T = 9, ph = (t % T) / T; c.clearRect(0, 0, w, h); const top = head(c, w, o.title, o.big, o.sub, cR(1)), x = v => 30 + (v - lo) / (hi - lo) * (w - 60), base = h - 44;
-      c.strokeStyle = cI(.25); c.beginPath(); c.moveTo(24, base); c.lineTo(w - 24, base); c.stroke(); [-.5, 0, .5].forEach(v => tx(c, v.toFixed(1), x(v), base + 18, { size: 10.5, al: 'center', col: cI(.45) }));
-      o.pts.forEach((v, i) => { const p = eo((ph * 1.6 - i / o.pts.length * .8) * 4), yy = top + (base - 12 - J[i] * (base - top - 40) - top) * p; c.beginPath(); c.arc(x(v), yy, i === o.best ? 8 : 5, 0, 6.3); c.fillStyle = i === o.best ? '#FFF3C4' : cG(.3 + J[i] * .5); c.globalAlpha = Math.min(1, p * 3); c.fill(); c.globalAlpha = 1; });
-      const q = eo(ph * 1.6 - .8); c.strokeStyle = cR(q); c.lineWidth = 2; c.setLineDash([6, 6]); c.beginPath(); c.moveTo(x(o.line), top); c.lineTo(x(o.line), base); c.stroke(); c.setLineDash([]); c.lineWidth = 1; tx(c, o.lineLabel, x(o.line) - 8, top + 12, { size: 11, al: 'right', col: cR(q) }); }; };
-
-  REELS.waterfall = (cv, o) => { const mx = Math.max(o.rows[0][1], o.rows[o.rows.length - 1][1]) * 1.12, lo = o.rows[0][1] * .72;
-    return t => { const [c, w, h] = fit(cv), T = 9, ph = (t % T) / T; c.clearRect(0, 0, w, h); const top = head(c, w, o.title, o.big, o.sub), base = h - 52, y = v => base - (v - lo) / (mx - lo) * (base - top), n = o.rows.length, bw = (w - 44) / n; let run = 0;
-      o.rows.forEach((r, i) => { const p = eo((ph * 1.7 - i * .11) * 3), tot = i === 0 || i === n - 1, a = tot ? lo : run, b = tot ? r[1] : run + r[1]; if (!tot) run += r[1]; else run = r[1]; const y1 = y(a), y2 = y(a + (b - a) * p), x = 22 + i * bw;
-        c.fillStyle = tot ? cI(.85) : r[1] >= 0 ? cG(.9) : cR(.9); c.fillRect(x + 5, Math.min(y1, y2), bw - 10, Math.max(2, Math.abs(y2 - y1))); tx(c, (tot ? '$' : r[1] > 0 ? '+' : '') + (r[1] * p).toFixed(0), x + bw / 2, Math.min(y1, y2) - 6, { size: 11.5, al: 'center', col: cI(.95) });
-        r[0].split(' ').forEach((s, k) => tx(c, s, x + bw / 2, base + 16 + k * 13, { size: 9.5, al: 'center', col: cI(.55) })); }); }; };
-
-  REELS.dual = (cv, o) => { const A = o.a.map(p => +p[1]), B = o.b.map(p => +p[1]), am = Math.max(...A), bl = Math.min(...B), bh = Math.max(...B);
-    return t => { const [c, w, h] = fit(cv), T = 10, ph = (t % T) / T, p = eo(ph * 1.5); c.clearRect(0, 0, w, h); const na = Math.max(2, Math.floor(p * A.length)), nb = Math.max(2, Math.floor(p * B.length)), top = head(c, w, o.title, o.fa(A[na - 1]), o.sub(B[nb - 1])), base = h - 30;
-      const xa = i => 22 + (w - 44) * i / (A.length - 1), xb = i => 22 + (w - 44) * i / (B.length - 1), ya = v => base - v / am * (base - top) * .9, yb = v => base - (v - bl) / (bh - bl) * (base - top) * .85 - 6;
-      c.beginPath(); c.moveTo(xa(0), base); for (let i = 0; i < na; i++) c.lineTo(xa(i), ya(A[i])); c.lineTo(xa(na - 1), base); c.fillStyle = cG(.3); c.fill(); c.strokeStyle = cG(.9); c.lineWidth = 1.5; c.beginPath(); for (let i = 0; i < na; i++) i ? c.lineTo(xa(i), ya(A[i])) : c.moveTo(xa(i), ya(A[i])); c.stroke();
-      c.strokeStyle = cR(1); c.lineWidth = 2.2; c.shadowColor = cR(1); c.shadowBlur = 10; c.beginPath(); for (let i = 0; i < nb; i++) i ? c.lineTo(xb(i), yb(B[i])) : c.moveTo(xb(i), yb(B[i])); c.stroke(); c.shadowBlur = 0; c.lineWidth = 1;
-      tx(c, o.la, 24, base + 16, { size: 10.5, col: cG(.9) }); tx(c, o.lb, w - 24, base + 16, { size: 10.5, al: 'right', col: cR(1) }); }; };
-
-  REELS.book = (cv, o) => { const r = rnd(9), L = 14, bid = Array.from({ length: L }, () => 40 + r() * 200), ask = Array.from({ length: L }, () => 40 + r() * 200); let last = 0, mid = 0, flash = 0, side = 1;
-    return t => { const [c, w, h] = fit(cv); if (t - last > .09) { last = t; for (let i = 0; i < L; i++) { bid[i] = Math.max(8, bid[i] + (r() - .5) * 60); ask[i] = Math.max(8, ask[i] + (r() - .5) * 60); } if (r() < .22) { side = r() < .5 ? 1 : -1; (side > 0 ? ask : bid)[0] *= .35; mid += side; flash = t; } }
-      c.clearRect(0, 0, w, h); const top = head(c, w, o.title, o.big, o.sub), cx = w / 2, rh = Math.min(26, (h - top - 30) / L), mx = 320;
-      for (let i = 0; i < L; i++) { const y = top + i * rh, a = 1 - i / L * .75, wb = bid[i] / mx * (cx - 70), wa = ask[i] / mx * (cx - 70); c.fillStyle = `rgba(85,214,160,${.75 * a})`; c.fillRect(cx - 34 - wb, y + 2, wb, rh - 4); c.fillStyle = cR(.8 * a); c.fillRect(cx + 34, y + 2, wa, rh - 4); tx(c, (291.5 - i * .01 + mid * .01).toFixed(2), cx - 30, y + rh * .68, { size: 9.5, col: cI(.5 * a + .2) }); }
-      if (t - flash < .25) { c.fillStyle = side > 0 ? 'rgba(85,214,160,.9)' : cR(.9); c.beginPath(); c.arc(cx + side * 60, top + rh / 2, 9 * (1 - (t - flash) * 4) + 4, 0, 6.3); c.fill(); }
-      tx(c, 'BIDS', 24, h - 12, { size: 10.5, col: 'rgba(85,214,160,.9)' }); tx(c, 'OFFERS', w - 24, h - 12, { size: 10.5, al: 'right', col: cR(1) }); }; };
-
-  REELS.var = (cv, o) => { const D2 = o.pts, WN = 110; let hits = 0;
-    return t => { const [c, w, h] = fit(cv), s = Math.floor(t * 9) % (D2.length - WN), win = D2.slice(s, s + WN); hits = D2.slice(0, s + WN).filter(d => +d[1] < +d[2]).length; c.clearRect(0, 0, w, h);
-      const top = head(c, w, o.title, `${hits} breaches`, `${win[WN - 1][0]} · day ${s + WN} of ${D2.length} · a 95% limit should break on 1 day in 20`), mid = top + (h - top) * .42, sc = (h - top) * 9, bw = (w - 44) / WN;
-      c.strokeStyle = cI(.2); c.beginPath(); c.moveTo(22, mid); c.lineTo(w - 22, mid); c.stroke(); c.beginPath(); win.forEach((d, i) => { const y = mid - d[2] * sc; i ? c.lineTo(22 + i * bw, y) : c.moveTo(22 + i * bw, y); }); c.strokeStyle = cG(1); c.lineWidth = 2; c.stroke(); c.lineWidth = 1;
-      win.forEach((d, i) => { const br = +d[1] < +d[2], y = mid - d[1] * sc; c.fillStyle = br ? cR(1) : cI(.55); c.fillRect(22 + i * bw + 1, Math.min(mid, y), Math.max(1.5, bw - 2), Math.abs(y - mid)); if (br) { c.beginPath(); c.arc(22 + i * bw + bw / 2, y + 9, 5 + Math.sin(t * 8) * 1.5, 0, 6.3); c.fillStyle = cR(.9); c.fill(); } });
-      tx(c, 'gold line: the loss limit set the day before', 24, h - 12, { size: 10.5, col: cG(.9) }); }; };
-
-  REELS.sieve = (cv, o) => { const rows = 16, r = rnd(4), red = o.fails.map(f => Math.round(f / o.total * rows * 10 * .5)), cells = []; o.fails.forEach((f, d) => { const idx = [...Array(rows).keys()].sort(() => r() - .5).slice(0, Math.min(rows, red[d])); for (let k = 0; k < rows; k++) cells.push({ d, k, bad: idx.includes(k), j: r() }); });
-    return t => { const [c, w, h] = fit(cv), T = 9, ph = (t % T) / T, q = eo(ph * 1.8 - .45); c.clearRect(0, 0, w, h); const top = head(c, w, o.title, o.big, o.sub), gw = (w - 44) / 10, gh = (h - top - 44) / rows, rad = Math.min(gw, gh) * .3;
-      cells.forEach(e => { const p = eo((ph * 1.8 - e.j * .35) * 4), x = 22 + e.d * gw + gw / 2, y = top + e.k * gh + gh / 2, lit = e.bad && q > e.j * .8; c.beginPath(); c.arc(x, y, rad * (lit ? 1.25 + Math.sin(t * 5 + e.j * 9) * .15 : 1) * p, 0, 6.3); c.fillStyle = lit ? cR(1) : cI(.16 + e.d * .03); if (lit) { c.shadowColor = cR(1); c.shadowBlur = 10; } c.fill(); c.shadowBlur = 0; });
-      for (let d = 0; d < 10; d++) tx(c, String(d + 1), 22 + d * gw + gw / 2, h - 24, { size: 10.5, al: 'center', col: cI(.5) }); tx(c, 'safest tenth', 22, h - 8, { size: 10.5, col: cI(.5) }); tx(c, 'riskiest tenth', w - 22, h - 8, { size: 10.5, al: 'right', col: cR(1) }); }; };
-
-  /* ================= scenes: one full screen per project, a live reel first ================= */
-  const s0 = S.p0, s2 = S.p2, s3 = S.p3, s6 = S.p6, s7 = S.p7, s9 = S.p9, X1 = M.x, t6 = s6.trials.map(q => +q[1]);
-  const BRIDGE = { budget_op_income: 'Budget', gp_volume: 'Volume', gp_rate: 'Price mix', opex_volume_flex: 'Flex costs', opex_spending: 'Spending', restructuring_other: 'One-offs', actual_op_income: 'Actual' };
-  const ATTR = { market: 'Market', sector: 'Sector', factor: 'Style factors', idiosyncratic: 'Stock picking', trade_day_legs: 'Trade-day legs', costs: 'Costs' };
-  const BIG = {
-    p0: ['grid', () => ({ n: s0.n, title: 'Questions answered from filings', sub: `each with the page it came from · plain keyword search scored ${pct(s0.naive, 0)}` }), `Real result: ${s0.exact} of ${s0.n} FinanceBench metric questions answered exactly, in-sample (${pct(s0.first_pass, 0)} on the first pass).`],
-    p1: ['line', () => ({ pts: S.p1.spread, title: 'Kenvue deal spread', fmt: v => v.toFixed(1) + '%', sub: d => 'week of ' + d, marks: [{ v: 0, label: 'closed', col: cI(.7) }] }), 'Real data: the gap between Kenvue\'s share price and the value of the offer, weekly, until the deal closed on 2 November 2026.'],
-    p2: ['ladder', () => ({ lo: 9.5, hi: 14, title: 'Jamf: my blind price against every bid', big: (s2.err * 100).toFixed(1) + '%', sub: 'my price was locked before I read the outcome', items: [{ v: s2.blind, label: 'my blind price', col: cG(1), big: 1 }, { v: s2.unaffected, label: 'undisturbed', col: cI(.7) }, { v: s2.bids.party_f_bafo, label: 'Party F', col: cI(.7) }, { v: s2.bids.june16_joint, label: 'joint bid', col: cI(.7) }, { v: s2.bids.party_a_revised, label: 'Party A', col: cI(.7) }, { v: s2.actual, label: 'paid', col: cR(1), big: 1 }] }), 'Real data: bids disclosed in the Jamf merger proxy and the price Francisco Partners paid, against the price my model locked beforehand.'],
-    p3: ['line', () => ({ pts: s3.series, title: 'Amkor share price, weekly', fmt: v => '$' + v.toFixed(2), sub: d => d, marks: [{ v: s3.pt, label: 'my target', col: cG(1) }, { v: s3.price, label: 'the call', col: cR(1) }, { v: s3.street, label: 'Street', col: cI(.7) }] }), `Real data: Amkor's weekly closing price. The Sell was sealed at $${s3.price} with a $${s3.pt} target when the Street's average target was $${s3.street.toFixed(2)}. Scored September 2027.`],
-    p4: ['hbars', () => ({ rows: Object.entries(S.p4.bl).map(([k, v]) => [k[0].toUpperCase() + k.slice(1), v]), fmt: v => v.toFixed(2), title: 'Return per unit of risk, by source of views', big: `${S.p4.bl['FOMC LLM views'].toFixed(2)} vs ${S.p4.bl['no views'].toFixed(2)}`, sub: 'language-model views against no views: no real difference', hot: 3 }), 'Real result: Sharpe ratio of the foundation portfolio under each set of views. The language-model result is a published null; the geopolitical one hurt.'],
-    p5: ['gap', () => ({ a: S.p5.caused, b: S.p5.withheld, gap: S.p5.gap, la: 'tax the stock awards cause', lb: 'withheld at 22%', title: 'The April tax surprise (fictional client)', sub: 'federal tax owed that nobody withheld' }), 'Computed from 2026 IRS brackets for a fictional client with $150,000 of vesting stock.'],
-    p6: ['swarm', () => ({ pts: t6, line: s6.hurdle, lineLabel: 'what luck alone gives', best: t6.indexOf(Math.max(...t6)), big: 'KILLED', title: `${t6.length} counted trials, by Sharpe ratio`, sub: `best ${Math.max(...t6).toFixed(2)} against ${s6.hurdle.toFixed(2)} expected from luck` }), 'Real result: every version of the signal I tried, logged before looking. The best one sits below what chance alone would produce, so the idea was killed.'],
-    p7: ['waterfall', () => ({ rows: s7.bridge.map(([k, v]) => [BRIDGE[k] || k, v]), title: 'Teradyne operating income, $M', big: '+$' + (s7.bridge[s7.bridge.length - 1][1] - s7.bridge[0][1]).toFixed(0) + 'M', sub: 'budget to actual: where the beat came from' }), 'Real data: a budget-to-actual bridge built from Teradyne\'s public filings.'],
-    p8: ['dual', () => ({ a: S.p8.series.hormuz, b: S.p8.series.brent, fa: v => Math.round(v) + ' ships a day', sub: v => 'Brent $' + v.toFixed(0) + ' a barrel', la: 'tanker transits, Strait of Hormuz', lb: 'Brent crude', title: 'Hormuz traffic and the oil price' }), 'Real data: daily tanker transits from IMF PortWatch ship tracking and the Brent price from FRED.'],
-    p9: ['hbars', () => ({ rows: Object.keys(ATTR).map(k => [ATTR[k], s9.attr[k]]), fmt: v => (v > 0 ? '+' : '') + v.toFixed(0) + ' bp', title: 'Dry run: where the return came from', big: '+' + s9.ret + '%', sub: 'practice run on April to June 2026 data · not a track record', bigCol: cI(.9) }), 'A dry run of the trading book\'s plumbing on past data, in basis points of capital. The live book has not started.'],
-    p10: ['book', () => ({ title: 'An order book, moving', big: X1.p10.msgs, sub: 'Nasdaq messages replayed in C++ · this animation is an illustration' }), `Illustration of a limit order book. The project replayed a real Nasdaq day with ${X1.p10.bad} broken order references; open the lab for the real results.`],
-    p11: ['var', () => ({ pts: M.p11.spy, title: 'S&P 500 fund: daily return against the loss limit' }), 'Real data: SPY daily returns (bars) against the 95% loss limit my risk model set the day before (gold). Red marks the days the limit broke.'],
-    p12: ['sieve', () => { const c = X1.p12.cal; return { fails: c.map(q => q.failures), total: X1.p12.fails, title: 'Where the bankruptcies were', big: `${c[9].failures} of ${X1.p12.fails}`, sub: 'bankruptcies sat in the riskiest tenth, out of sample' }; }, 'Real proportions: companies sorted into tenths by my screen\'s score, fiscal 2017 to 2024. Red marks where the companies that later filed for bankruptcy were sitting. Dots are scaled, not one per company.'],
-    p13: ['surface', () => { const q = X1.p13.surf, z = q[0].map((_, k) => q.map(r => r[k])); return { z, xw: 2.5, yw: 1.1, zs: 1.15, a0: -.35, swing: .22, tilt: .62, cstep: 8, lw: 1.5, cursor: true, curLabel: j => String(X1.p13.y0 + Math.floor(j / 4)), labels: [[0, 0, '3-month'], [z.length - 1, 0, '10-year']] }; }, 'Real data: the Treasury yield curve at every quarter end since 1990, from 3 months to 10 years (Federal Reserve). Each ribbon is one maturity; the bright line is the curve on one date, moving through time.'],
-    p14: ['surface', () => ({ z: X1.p14.surf, zs: 1.7, yw: 1.5, xw: 1.9, a0: -.6, labels: [[0, 0, 'crash puts, 1 month'], [0, X1.p14.surf[0].length - 1, 'calls, 1 month'], [X1.p14.surf.length - 1, 0, '6 months']] }), 'Real data: the implied-volatility surface for SPY options, fitted to closing quotes on the day the calls were sealed. Height is implied volatility.'] };
-  const STACK = MOTION && matchMedia('(min-width:1101px) and (min-height:700px)').matches;
-  const railOn = id => { $$('#railIn a.on').forEach(a => a.classList.remove('on')); const a = $(`#railIn a[data-p="${id}"]`); if (a) { a.classList.add('on'); const r = $('#railIn'); r.scrollTo({ left: a.offsetLeft - r.clientWidth / 2 + a.clientWidth / 2, behavior: 'smooth' }); } };
-  { const ix = $('#chIdx'); if (ix) ix.innerHTML = M.projects.map(p => `<a href="#${p.id}"><b>${p.n}</b><i>${esc(p.seat)}</i><span>${esc(p.title)}</span></a>`).join(''); }
+  /* ================= v23 scenes: one full screen per project, the visual first ================= */
+  const BIG = { p13: ['surface', () => { const q = M.x.p13.surf, z = q[0].map((_, k) => q.map(r => r[k])); return { z, xw: 2.5, yw: 1.1, zs: 1.15, a0: -.35, swing: .22, tilt: .62, cstep: 8, lw: 1.5, cursor: true, curLabel: j => String(M.x.p13.y0 + Math.floor(j / 4)), labels: [[0, 0, '3-month'], [z.length - 1, 0, '10-year']] }; }, 'Real data: the Treasury yield curve at every month end since 1990, from 3 months to 10 years (Federal Reserve). Each ribbon is one maturity; the bright line is the curve on one date, moving through time.'],
+                p14: ['surface', () => ({ z: M.x.p14.surf, zs: 1.7, yw: 1.5, xw: 1.9, a0: -.6, labels: [[0, 0, 'crash puts, 1 month'], [0, M.x.p14.surf[0].length - 1, 'calls, 1 month'], [M.x.p14.surf.length - 1, 0, '6 months']] }), 'Real data: the implied-volatility surface for SPY options, fitted to closing quotes on the day the calls were sealed. Height is implied volatility.'] };
+  const capOf2 = p => p.cap || ((DESKS.find(d => d.id === p.id) || {}).cap) || p.figcap;
   $('#pjList').innerHTML = M.projects.map((p, i) => `
   <article class="pj sc${i % 2 ? ' flip' : ''}" id="${p.id}" aria-labelledby="t-${p.id}">
-    <div class="sc-vis big" data-lab="${p.id}" data-cur="Open lab" role="button" tabindex="0" aria-label="Open the interactive lab for ${p.n}: ${esc(p.title)}. ${esc(BIG[p.id][2])}">
+    <div class="sc-vis${BIG[p.id] ? ' big' : ''}" data-lab="${p.id}" role="button" tabindex="0" aria-label="Open the interactive lab for ${p.n}: ${esc(p.title)}">
       <canvas class="sc-reel" data-reel="${p.id}" aria-hidden="true"></canvas>
-      <span class="sc-tag">${p.n} · live render</span>
+      ${BIG[p.id] ? '' : `<svg id="fig-${p.id}" viewBox="0 0 460 360" role="img" aria-label="${esc(capOf2(p))}"></svg>`}
+      <span class="sc-tag">${p.n} · ${BIG[p.id] ? 'live render' : 'key exhibit'}</span>
       <span class="sc-play">Open the lab <b aria-hidden="true">→</b></span>
     </div>
     <div class="sc-txt">
@@ -2854,16 +2714,16 @@ P.p11 = svg => {
       <div class="mets">${p.metrics.map(m => `<div class="met"><b>${esc(m.value)}</b><span>${esc(m.label)}</span></div>`).join('')}</div>
       <p class="sc-found">${esc(p.result.headline)}</p>
       <div class="opens"><button type="button" class="btn btn-solid" data-lab="${p.id}">Enter the ${p.n} lab</button></div>
-      <p class="cap">${esc(BIG[p.id][2])}</p>
+      <p class="cap">${esc(BIG[p.id] ? BIG[p.id][2] : capOf2(p))}</p>
     </div>
   </article>`).join('');
   if (desk) setDesk(desk.id, false);
-  $$('.sc-reel').forEach(cv => { const b = BIG[cv.dataset.reel]; try { reel(cv, b[0], b[1]()); } catch (err) { console.error('reel', cv.dataset.reel, err); } });
+  $$('.sc-reel').forEach((cv, i) => { const b = BIG[cv.dataset.reel]; b ? reel(cv, b[0], b[1]()) : reel(cv, 'drift', { seed: 11 + i * 7 }); });
   const hr = $('#heroReel'); if (hr) reel(hr, 'fan', { seed: 21, x0: .42, mid: .5 });
   document.addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && e.target.matches && e.target.matches('.sc-vis')) { e.preventDefault(); e.target.click(); } });
   const caseFile = p => { const d = document.createElement('div'); d.className = 'lab-ex case';
     d.innerHTML = `<h4>The case file</h4><div class="case-g"><div><h5>What I built</h5><p>${esc(p.built)}</p><h5>What it found</h5><p>${esc(p.result.headline)}</p><p class="vs">Graded against: ${esc(p.result.vs)}</p></div><div><h5 class="r">Where it falls short</h5><p>${esc(p.caveat)}</p><h5>How, in order</h5><ol class="how">${p.method.map(m => `<li><span><b>${esc(m.step)}.</b> ${esc(m.detail)}</span></li>`).join('')}</ol></div></div>`; return d; };
-  if ('IntersectionObserver' in window) { if (!STACK) { const io2 = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) railOn(e.target.id); }), { rootMargin: '-45% 0px -50% 0px' }); $$('.pj').forEach(a => io2.observe(a)); }
+  if ('IntersectionObserver' in window) { const io2 = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; $$('#railIn a.on').forEach(a => a.classList.remove('on')); const a = $(`#railIn a[data-p="${e.target.id}"]`); if (a) { a.classList.add('on'); const r = $('#railIn'); r.scrollTo({ left: a.offsetLeft - r.clientWidth / 2 + a.clientWidth / 2, behavior: 'smooth' }); } }), { rootMargin: '-45% 0px -50% 0px' }); $$('.pj').forEach(a => io2.observe(a));
     new IntersectionObserver(es => es.forEach(e => $('#rail').classList.toggle('show', e.isIntersecting)), { rootMargin: '-30% 0px -30% 0px' }).observe($('#pjList')); }
   if (MOTION) { const ld = document.createElement('div'); ld.id = 'loader'; ld.setAttribute('aria-hidden', 'true'); ld.innerHTML = '<div><span>Marked</span><span>to</span><span class="g">Market</span></div><i></i><em>00</em>'; document.body.appendChild(ld);
     const o = { n: 0 }; gsap.timeline().from('#loader span', { yPercent: 120, duration: .6, stagger: .09, ease: 'expo.out' }).to(o, { n: M.n_projects, duration: .9, ease: 'power2.inOut', onUpdate: () => { $('#loader em').textContent = String(Math.round(o.n)).padStart(2, '0'); } }, 0).fromTo('#loader i', { scaleX: 0 }, { scaleX: 1, duration: .9, ease: 'power2.inOut' }, 0).to('#loader', { yPercent: -100, duration: .7, ease: 'expo.inOut', onComplete: () => ld.remove() }, 1.05); }
@@ -3033,30 +2893,29 @@ P.p11 = svg => {
   if (!G) return;
   document.documentElement.style.scrollBehavior = 'auto';
   const ST = window.ScrollTrigger; if (ST) G.registerPlugin(ST);
-  document.addEventListener('click', e => { const a = e.target.closest('a[href^="#"]'); if (!a || a.getAttribute('href').length < 2) return; const t = document.querySelector(a.getAttribute('href')); if (!t) return; e.preventDefault(); closeLab(); { const py = window.__pjY ? window.__pjY(t) : null; scrollToY(py != null ? py : Math.max(0, t.getBoundingClientRect().top + scrollY - 124), 1.1); }; try { history.replaceState(null, '', a.getAttribute('href')); } catch (err) { /* fine */ } });
+  document.addEventListener('click', e => { const a = e.target.closest('a[href^="#"]'); if (!a || a.getAttribute('href').length < 2) return; const t = document.querySelector(a.getAttribute('href')); if (!t) return; e.preventDefault(); closeLab(); scrollToY(Math.max(0, t.getBoundingClientRect().top + scrollY - 124), 1.1); try { history.replaceState(null, '', a.getAttribute('href')); } catch (err) { /* fine */ } });
   flapBoard();
   if (window.SplitText) { try { const sp = new window.SplitText('#h1 span', { type: 'words,chars' }); G.from(sp.chars, { yPercent: 60, rotateX: -80, transformOrigin: '50% 100%', duration: .7, ease: 'back.out(1.6)', stagger: .018 }); } catch (e) { /* plain headline */ } }
   $$('#stats dd').forEach((el, i) => { const v = +el.dataset.v, d = +el.dataset.d, o = { n: 0 }; G.to(o, { n: v, duration: 1.4, delay: .5 + i * .12, ease: 'power2.out', onUpdate: () => { el.textContent = o.n.toFixed(d) + el.dataset.u; } }); });
   if (!ST) return;
   const once = (trg, vars) => G.from(trg, Object.assign({ scrollTrigger: { trigger: Array.isArray(trg) ? trg[0] : trg, start: 'top 86%', once: true } }, vars));
+  once($$('.desk'), { y: 22, duration: .5, stagger: .03, ease: 'power3.out' });
   ST.create({ trigger: '#plot', start: 'top 78%', once: true, onEnter: () => $$('#plot .dot').forEach((d, i) => G.from(d, { attr: { cx: d.dataset.x0 }, duration: .9, delay: i * .012, ease: 'power3.out' })) });
   $$('.pj').forEach(a => {
     const st = { trigger: a, start: 'top 78%', once: true };
     G.from($('.stamp', a), { scale: 1.9, rotate: -14, duration: .5, ease: 'back.out(2.2)', scrollTrigger: st });
     G.from($$('.met', a), { y: 18, duration: .5, stagger: .07, ease: 'power3.out', scrollTrigger: { trigger: $('.mets', a), start: 'top 88%', once: true } });
   });
+  once($$('.wrongs li'), { y: 20, duration: .5, stagger: .04, ease: 'power3.out' });
   once($$('.blk'), { scale: .9, duration: .45, stagger: .08, ease: 'back.out(1.8)' });
   /* ================= v22 motion ================= */
   document.documentElement.classList.add('mo');
-  if (STACK) document.documentElement.classList.add('stack');
   if (window.SplitText) $$('.sec-h h2, .contact h2').forEach(h => { try { const sp = new window.SplitText(h, { type: 'words' }); gsap.from(sp.words, { yPercent: 115, rotate: 5, duration: .9, ease: 'expo.out', stagger: .06, scrollTrigger: { trigger: h, start: 'top 90%', once: true } }); } catch (e) { /* plain heading */ } });
-  // without the stacked screens (phones, short windows) each project simply rises into place
-  if (!STACK) $$('.pj').forEach(a => {
+  $$('.pj').forEach(a => {
     gsap.fromTo($('.pj-n', a), { yPercent: 26 }, { yPercent: -14, ease: 'none', scrollTrigger: { trigger: a, start: 'top bottom', end: 'top 20%', scrub: .6 } });
-    gsap.from($('.sc-vis', a), { y: 50, duration: .9, ease: 'expo.out', scrollTrigger: { trigger: a, start: 'top 88%', once: true } });
-    gsap.from($$('.pj-seat, .pj-t, .pj-q, .sc-found, .opens', a), { y: 30, duration: .8, ease: 'expo.out', stagger: .07, scrollTrigger: { trigger: a, start: 'top 70%', once: true } });
+    if (window.ScrambleTextPlugin) $$('.met b', a).forEach((b, i) => { const t = b.textContent; ST.create({ trigger: b, start: 'top 90%', once: true, onEnter: () => gsap.to(b, { duration: .9, delay: i * .1, scrambleText: { text: t, chars: '0123456789$%.', speed: .5 } }) }); });
+    gsap.from($('.sc-vis', a), { scale: .82, rotateY: a.classList.contains('flip') ? -14 : 14, transformPerspective: 1400, ease: 'none', scrollTrigger: { trigger: a, start: 'top bottom', end: 'top 25%', scrub: .5 } });
   });
-  if (window.ScrambleTextPlugin && !STACK) $$('.pj .met b').forEach((b, i) => { const t = b.textContent; ST.create({ trigger: b, start: 'top 90%', once: true, onEnter: () => gsap.to(b, { duration: .9, delay: (i % 3) * .1, scrambleText: { text: t, chars: '0123456789$%.', speed: .5 } }) }); });
   // the story runs sideways while you scroll down (desktop only)
   const mm = gsap.matchMedia();
   mm.add('(min-width: 1101px)', () => {
@@ -3065,66 +2924,10 @@ P.p11 = svg => {
     $$('li', list).forEach(li => gsap.from($('time', li), { scale: .6, transformOrigin: '0 100%', ease: 'none', scrollTrigger: { trigger: li, containerAnimation: tw, start: 'left 95%', end: 'left 55%', scrub: true } }));
     return () => gsap.set(list, { clearProps: 'x' });
   });
+  gsap.from('.mq', { xPercent: 4, duration: 1.2, ease: 'expo.out', delay: .4 });
   gsap.from('.board', { y: 60, rotateX: 10, transformPerspective: 1200, transformOrigin: '50% 0', duration: 1.2, ease: 'expo.out', delay: .15 });
-  /* ================= flow: scroll-driven moments =================
-     Borrowed from the reference studio sites: one idea per screen, screens that slide over each other,
-     a frame that opens as it arrives, and a title you zoom out of. Nothing leans, nothing stays tilted. */
-  const cl = (v, a, b) => Math.max(a, Math.min(b, v)), ez = t => 1 - Math.pow(1 - t, 3);
-  // the hero drifts apart as you leave it
-  gsap.to('#h1 .l1', { xPercent: -6, ease: 'none', scrollTrigger: { trigger: '#top', start: 'top top', end: 'bottom top', scrub: .6 } });
-  gsap.to('#h1 .l2', { xPercent: 6, ease: 'none', scrollTrigger: { trigger: '#top', start: 'top top', end: 'bottom top', scrub: .6 } });
-  gsap.to('#heroReel', { yPercent: 22, ease: 'none', scrollTrigger: { trigger: '#top', start: 'top top', end: 'bottom top', scrub: true } });
-  gsap.to('.mq', { xPercent: -6, ease: 'none', scrollTrigger: { trigger: '.mq', start: 'top bottom', end: 'bottom top', scrub: .5 } });
-
-  // chapter: you start inside the word, pull back, and the fifteen projects fly in and settle into an index
-  const ch = $('#chapter');
-  if (ch && STACK) { const tiles = $$('#chIdx a'), n = tiles.length, rnd = k => { const x = Math.sin(k * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
-    const tl = gsap.timeline({ scrollTrigger: { trigger: ch, start: 'top top', end: '+=170%', pin: true, scrub: .7, anticipatePin: 1 } });
-    tl.fromTo('#chapter h2', { scale: 7, yPercent: 60 }, { scale: 1, yPercent: 0, ease: 'power2.out', duration: .5 }, 0)
-      .fromTo('#chapter .ch-k', { opacity: 0 }, { opacity: 1, duration: .15 }, .35);
-    tiles.forEach((t, k) => tl.fromTo(t, { x: (rnd(k) - .5) * innerWidth * 1.5, y: innerHeight * (.7 + rnd(k + 40) * .9), rotate: (rnd(k + 80) - .5) * 50, scale: 1.5, opacity: 0 },
-      { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1, ease: 'power3.out', duration: .42 }, .3 + k / n * .26));
-    tl.to({}, { duration: .1 }); }
-
-  // projects: full screens that slide over one another. One loop reads the scroll position and places everything.
-  if (STACK) { const list = $('#pjList'); let ps = [], tops = [], hs = [], vh = innerHeight, cur = -1, last = [];
-    const measure = () => { vh = innerHeight; ps = $$('.pj.sc', list); const root = document.documentElement;
-      root.classList.add('nostick'); const sy = scrollY, lr = list.getBoundingClientRect();
-      tops = ps.map(a => a.getBoundingClientRect().top + sy); hs = ps.map(a => a.offsetHeight); root.classList.remove('nostick');
-      list.style.setProperty('--bleed', (ps[0] ? ps[0].getBoundingClientRect().left : lr.left) + 'px');
-      ps.forEach((a, i) => { a.style.setProperty('--stick', Math.min(0, vh - hs[i]) + 'px'); a._kids = [$('.sc-vis', a), $('.sc-txt', a)]; a._rows = [...$('.sc-txt', a).children]; a._cv = $('.sc-reel', a); a._n = $('.pj-n', a); });
-      last = []; place(); };
-    const place = () => { const y = scrollY; let on = 0;
-      for (let i = 0; i < ps.length; i++) { const a = ps[i], e = cl((y + vh - tops[i]) / vh, 0, 1), c = i + 1 < ps.length ? cl((y + vh - tops[i + 1]) / vh, 0, 1) : 0;
-        if (e >= .5) on = i; const key = e.toFixed(4) + '|' + c.toFixed(4); if (last[i] === key) continue; last[i] = key;
-        const gone = c >= 1; a.style.visibility = gone ? 'hidden' : ''; if (a._cv) a._cv._hold = gone || e <= 0; if (gone) continue;
-        // arriving: the frame opens, the picture settles, the words rise in turn
-        const f = ez(cl((e - .15) / .85, 0, 1)), vis = a._kids[0];
-        vis.style.clipPath = f >= 1 ? '' : `inset(${(1 - f) * 20}% ${(1 - f) * 14}% round 22px)`;
-        if (a._cv) a._cv.style.transform = f >= 1 ? '' : `scale(${1 + (1 - f) * .28})`;
-        if (a._n) a._n.style.transform = `translate3d(${(1 - ez(e)) * (a.classList.contains('flip') ? 160 : -160)}px,0,0)`;
-        a._rows.forEach((r, k) => { const t = ez(cl((e - .42 - k * .045) / .4, 0, 1)); r.style.transform = t >= 1 ? '' : `translate3d(0,${(1 - t) * 70}px,0)`; r.style.opacity = t >= 1 ? '' : t.toFixed(3); });
-        // leaving: the screen sinks back and dims while the next one covers it
-        const s = 1 - c * .07, o = 1 - c * .75;
-        a._kids.forEach((k, j) => { if (j === 0) { k.style.transform = c > 0 ? `translate3d(0,${-c * 50}px,0) scale(${s})` : ''; k.style.opacity = c > 0 ? o.toFixed(3) : ''; } else { k.style.transformOrigin = '50% 0'; k.style.transform = c > 0 ? `translate3d(0,${-c * 50}px,0) scale(${s})` : ''; k.style.opacity = c > 0 ? o.toFixed(3) : ''; } }); }
-      if (on !== cur && ps[on]) { cur = on; railOn(ps[on].id); } };
-    window.__pjY = t => { const i = ps.indexOf(t); return i < 0 ? null : tops[i]; };
-    let mt = 0; const soon = () => { clearTimeout(mt); mt = setTimeout(measure, 120); };
-    ST.addEventListener('refresh', measure); addEventListener('resize', soon);
-    new MutationObserver(soon).observe(list, { childList: true });
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(soon);
-    gsap.ticker.add(place); measure(); }
-
-  // cards flip up in a wave, the misses slide in from alternating sides
-  ST.batch('.desk', { start: 'top 92%', once: true, onEnter: els => gsap.from(els, { rotateX: -70, y: 40, transformOrigin: '50% 100%', transformPerspective: 800, duration: .8, ease: 'back.out(1.5)', stagger: .05 }) });
-  ST.batch('.wrongs li', { start: 'top 94%', once: true, onEnter: els => gsap.from(els, { x: i => (i % 2 ? 80 : -80), duration: .8, ease: 'expo.out', stagger: .06 }) });
-  gsap.from('.stats > div', { y: 60, duration: .9, ease: 'expo.out', stagger: .08, scrollTrigger: { trigger: '.stats', start: 'top 92%', once: true } });
-  gsap.fromTo('.contact h2', { scale: .7, transformOrigin: '0 100%' }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '.contact', start: 'top bottom', end: 'top 30%', scrub: .6 } });
-  // a cursor that names what a click will do
-  if (matchMedia('(hover:hover) and (pointer:fine)').matches) { const cur = document.createElement('div'); cur.id = 'cur'; cur.setAttribute('aria-hidden', 'true'); document.body.appendChild(cur);
-    const mx = gsap.quickTo(cur, 'x', { duration: .25, ease: 'power3.out' }), my = gsap.quickTo(cur, 'y', { duration: .25, ease: 'power3.out' });
-    addEventListener('pointermove', e => { mx(e.clientX); my(e.clientY); const t = e.target.closest && e.target.closest('[data-cur]'); cur.textContent = t ? t.dataset.cur : ''; cur.classList.toggle('on', !!t); }, { passive: true }); }
   ST.refresh();
+  $$('.pj.sc').forEach(a => gsap.from($$('.pj-seat, .pj-t, .pj-q, .sc-found, .opens', a), { x: a.classList.contains('flip') ? -60 : 60, duration: .8, ease: 'expo.out', stagger: .07, scrollTrigger: { trigger: a, start: 'top 62%', once: true } }));
 })();
 
 })();</script>
